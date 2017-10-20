@@ -1,0 +1,31 @@
+{
+  "name": "pool",
+  "version": "0.0.1",
+  "description": "A pool simulator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CIS580F17/pool.git"
+  },
+  "keywords": [
+    "pool",
+    "physics",
+    "simulation"
+  ],
+  "author": "Nathan H. Bean",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CIS580F17/pool/issues"
+  },
+  "homepage": "https://github.com/CIS580F17/pool#readme",
+  "devDependencies": {
+    "react-scripts": "^1.0.14"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  }
+}
