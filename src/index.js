@@ -8,8 +8,8 @@ document.body.appendChild(canvas);
 
 var balls = []
 balls[15] = new Ball(15, {x: 732, y: 266});
-balls[0] =  new Ball(1,  {x: 266, y: 266});
-balls[1] =  new Ball(2,  {x: 240, y: 250});
+balls[0] =  new Ball(0,  {x: 266, y: 266});
+balls[1] =  new Ball(1,  {x: 240, y: 250});
 balls[8] =  new Ball(8,  {x: 240, y: 281});
 balls[9] =  new Ball(9,  {x: 212, y: 236});
 balls[7] =  new Ball(7,  {x: 212, y: 266});
@@ -37,9 +37,19 @@ function update() {
       if(900 > Math.pow(a.x-b.x, 2) + Math.pow(a.y-b.y, 2)) {
         balls[i].setColor('red');
         balls[j].setColor('red');
-      } else {
+      }
+        //TODO Handle collisions
+
+      // Determine angle between centers
+      let diff = Vector.subtract(a,b);
+      let angle = Math.atan2(diff.y, diff.x);
+      let c = balls[i].getVelocity();
+      let d = balls[j].getVelocity();
+      c = Vector.rotate(c, angle);
+      d = Vector.rotate(d, angle);
+      else {
         balls[i].setColor('gray');
-        balls[j].setColor('red');
+        balls[j].setColor('gray');
       }
     }
   }
@@ -57,6 +67,6 @@ function loop() {
   render();
 }
 
-setInterval(loop, 1/30000);
+setInterval(loop, 1000/30);
 
-balls[15].setVelocity({x: -0.1, y:0})
+balls[15].setVelocity({x: -5, y:0})
